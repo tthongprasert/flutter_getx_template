@@ -1,0 +1,2 @@
+# flutter_getx_template
+A mobile application uses Flutter SDK which is Google's UI toolkit for crafting beautiful, natively compiled applications for mobile, web, and desktop from a single codebase and GetX for state management.  GetX is an extra-light and powerful solution for Flutter. It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.
