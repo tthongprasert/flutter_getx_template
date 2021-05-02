@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/app/controllers/login_controller.dart';
 import 'package:flutter_getx_template/app/views/global_widgets/form_submit_button.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final LoginController _loginController = Get.find<LoginController>();
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +38,13 @@ class LoginPage extends StatelessWidget {
                     children: [
                       TextFormField(
                         decoration: const InputDecoration(
-                          hintText: 'Enter your email',
+                          hintText: 'Username',
                         ),
-                        validator: (String value) {
+                        onChanged: (email) {
+                          _loginController.username = email;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
                           }
@@ -47,24 +53,34 @@ class LoginPage extends StatelessWidget {
                       ),
                       TextFormField(
                         decoration: const InputDecoration(
-                          hintText: 'Enter your password',
+                          hintText: 'Password',
                         ),
                         obscureText: true,
-                        validator: (String value) {
+                        onChanged: (password) {
+                          _loginController.password = password;
+                        },
+                        validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
+                            return 'Please enter some text';
                           }
                           return null;
                         },
                       ),
-                      FormSubmitButton(
-                        formKey: _formKey,
-                        onPress: () {
-                          if (_formKey.currentState.validate()) {
-                            Get.offAndToNamed('/home');
-                          }
-                        },
-                      )
+                      Container(
+                        child: Obx(() => _loginController.loading
+                            ? Padding(
+                                padding: EdgeInsets.only(top: 20),
+                                child: CircularProgressIndicator(),
+                              )
+                            : FormSubmitButton(
+                                formKey: _formKey,
+                                onPress: () {
+                                  if (_formKey.currentState.validate()) {
+                                    _loginController.loginWithEmailPassword();
+                                  }
+                                },
+                              )),
+                      ),
                     ],
                   ),
                 ),
