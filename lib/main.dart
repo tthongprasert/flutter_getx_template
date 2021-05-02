@@ -12,6 +12,6 @@ void main() {
     getPages: AppPages.pages,
     locale: Locale('pt', 'BR'),
     translationsKeys: AppTranslation.translations,
-    initialRoute: '/login',
+    initialRoute: AppRoutes.LOGIN,
   ));
 }

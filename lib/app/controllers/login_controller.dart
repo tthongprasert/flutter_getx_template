@@ -1,4 +1,3 @@
-import 'package:flutter_getx_template/app/data/repositories/authentication_repository.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -19,9 +18,6 @@ class LoginController extends GetxController {
   get loading => _loading.value;
 
   set loading(val) => _loading.value = val;
-
-  final AuthenticationRepository authenticationRepository =
-      AuthenticationRepository();
 
   void loginWithEmailPassword() {
     // authenticationRepository.login(username, password);
