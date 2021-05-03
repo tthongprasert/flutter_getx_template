@@ -6,6 +6,17 @@ import 'package:get/get.dart';
 class HomePage extends GetView<HomeController> {
   final HomeController homeController = Get.find<HomeController>();
 
+  void _showDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Alert Dialog"),
+            content: Text("Dialog Content"),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,22 +28,32 @@ class HomePage extends GetView<HomeController> {
               child: ElevatedButton(
                 child: Obx(() => Text('${homeController.count}')),
                 onPressed: () {
-                  homeController.increment();
+                  _showDialog(context);
+                  // homeController.increment();
                 },
               ),
             ),
             Container(
-                height: 300,
-                child: controller.obx(
-                  (state) {
-                    return ListView.builder(
-                        itemCount: state.Countries.length,
-                        itemBuilder: (context, index) => ListTile(
-                              title: Text(state.Countries[index]['Country']),
-                              trailing: Icon(Icons.add),
-                            ));
-                  },
-                )),
+              height: 500,
+              child: controller.obx(
+                (state) => ListView.builder(
+                  itemCount: state.Countries.length,
+                  itemBuilder: (context, index) => ListTile(
+                    title: Text(state.Countries[index]['Country']),
+                    trailing: Icon(Icons.add),
+                  ),
+                ),
+                onLoading: Center(
+                  child: CircularProgressIndicator(),
+                ),
+                onEmpty: Center(
+                  child: Text('No data found'),
+                ),
+                onError: (error) => Center(
+                  child: Text('Try Again!'),
+                ),
+              ),
+            ),
           ],
         ));
   }

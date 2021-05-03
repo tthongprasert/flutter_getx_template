@@ -10,18 +10,21 @@ class HomeController extends GetxController with StateMixin<Items> {
   get count => _count.value;
   set count(val) => _count.value = val;
 
-  increment() => count++;
-
   @override
   void onInit() {
-    fetchItems();
+    Future.delayed(Duration(milliseconds: 3000), () {
+      fetchItems();
+    });
+
     super.onInit();
   }
+
+  increment() => count++;
 
   Future<void> fetchItems() async {
     final Response response = await _homeProvider.getItems();
     if (response.hasError) {
-      change(null, status: RxStatus.error(response.statusText));
+      change(null, status: RxStatus.error('No data. Please try again.'));
     } else {
       change(response.body, status: RxStatus.success());
     }
