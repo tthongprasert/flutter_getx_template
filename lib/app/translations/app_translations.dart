@@ -8,7 +8,7 @@ abstract class AppTranslation {
 {
     'pt_BR' : ptBR,
     'en_US' : enUs,
-    'es_mx' : esMx
+    'es_MX' : esMx
 };
 
 }

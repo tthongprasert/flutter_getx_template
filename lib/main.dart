@@ -10,7 +10,7 @@ void main() {
     theme: appThemeData,
     defaultTransition: Transition.fade,
     getPages: AppPages.pages,
-    locale: Locale('pt', 'BR'),
+    locale: Locale('en', 'US'),
     translationsKeys: AppTranslation.translations,
     initialRoute: AppRoutes.LOGIN,
   ));

@@ -23,18 +23,43 @@ class HomePage extends GetView<HomeController> {
         appBar: AppBar(title: const Text('Home Page')),
         body: Column(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('hello'.tr),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    child: Text('es_MX'),
+                    onPressed: () {
+                      var locale = Locale('es', 'MX');
+                      Get.updateLocale(locale);
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    child: Text('en_US'),
+                    onPressed: () {
+                      var locale = Locale('en', 'US');
+                      Get.updateLocale(locale);
+                    },
+                  ),
+                ),
+              ],
+            ),
             Padding(
               padding: EdgeInsets.all(10),
               child: ElevatedButton(
                 child: Obx(() => Text('${homeController.count}')),
                 onPressed: () {
-                  _showDialog(context);
-                  // homeController.increment();
+                  homeController.increment();
                 },
               ),
             ),
             Container(
-              height: 500,
+              height: 300,
               child: controller.obx(
                 (state) => ListView.builder(
                   itemCount: state.Countries.length,

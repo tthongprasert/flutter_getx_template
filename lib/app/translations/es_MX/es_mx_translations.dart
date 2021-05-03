@@ -1,3 +1,3 @@
 final Map<String, String> esMx = {
-  'oi':'Holla'
+  'hello':'Holla'
 };
