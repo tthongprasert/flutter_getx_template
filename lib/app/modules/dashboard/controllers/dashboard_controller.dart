@@ -6,12 +6,7 @@ class DashboardController extends GetxController {
 
   changeTabIndex(index) {
     tabIndex = index;
-
-    if (tabIndex != 2) {
-      update();
-    } else {
-      alert();
-    }
+    update();
   }
 
   alert() {

@@ -1,3 +1,4 @@
+import 'package:flutter_getx_template/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -24,7 +25,7 @@ class LoginController extends GetxController {
 
     loading = true;
     Future.delayed(Duration(milliseconds: 3000), () {
-      Get.offAndToNamed('/home');
+      Get.offAndToNamed(AppRoutes.DASHBOARD);
     });
   }
 }

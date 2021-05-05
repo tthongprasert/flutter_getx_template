@@ -3,7 +3,7 @@ import 'package:flutter_getx_template/app/global_widgets/form_submit_button.dart
 import 'package:flutter_getx_template/app/modules/login/controllers/login_controller.dart';
 import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginView extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final LoginController _loginController = Get.find<LoginController>();
 
