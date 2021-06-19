@@ -1,2 +1,5 @@
 #include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
 #include "Generated.xcconfig"
+APP_DISPLAY_NAME=FlutterApp
+APP_VERSION_NUMBER=0.0.1
+APP_BUILD_NUMBER=1

@@ -1,0 +1,6 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug-dev.xcconfig"
+#include "Generated.xcconfig"
+BUNDLE_SUFFIX=.dev
+APP_DISPLAY_NAME=FlutterApp Dev
+APP_VERSION_NUMBER=0.0.1
+APP_BUILD_NUMBER=1
