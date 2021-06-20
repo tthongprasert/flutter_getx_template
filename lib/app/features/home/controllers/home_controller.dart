@@ -1,5 +1,5 @@
 import 'package:flutter_getx_template/app/core/base/models/items.dart';
-import 'package:flutter_getx_template/app/providers/home_provider.dart';
+import 'package:flutter_getx_template/app/data/providers/home_provider.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController with StateMixin<Items> {
