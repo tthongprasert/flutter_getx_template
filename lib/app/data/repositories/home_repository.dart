@@ -2,7 +2,7 @@ import 'package:flutter_getx_template/app/core/base/models/items.dart';
 import 'package:flutter_getx_template/app/core/init/network/networking.dart';
 import 'package:get/get.dart';
 
-class HomeProvider extends GetConnect {
+class HomeRepository extends GetConnect {
   ApiBaseHelper api = ApiBaseHelper();
 
   Future<Response<Items>> getItems() async {

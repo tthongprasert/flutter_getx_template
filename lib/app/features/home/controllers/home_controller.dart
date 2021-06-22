@@ -1,9 +1,9 @@
 import 'package:flutter_getx_template/app/core/base/models/items.dart';
-import 'package:flutter_getx_template/app/data/providers/home_provider.dart';
+import 'package:flutter_getx_template/app/data/repositories/home_repository.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController with StateMixin<Items> {
-  final HomeProvider _homeProvider = Get.find<HomeProvider>();
+  final HomeRepository _homeProvider = Get.find<HomeRepository>();
 
   final _count = 0.obs;
 
